@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[4],{MCZu:function(n,e,t){"use strict";t.r(e);var a=t("q1tI"),o=t.n(a),w=t("Ty5D");e["default"]=()=>o.a.createElement(w["a"],{to:"/login"})}}]);
