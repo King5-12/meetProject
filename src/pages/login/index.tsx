@@ -35,8 +35,7 @@ export default function Login() {
             // 如果登录成功
             if (res.code === 200) {
                 message.success(res.msg, 1);
-                loginTokenStorage.set('true');
-                // 转换界面
+                loginTokenStorage.set(res.data.username);
                 history.push('/chatroom');
                 // ipcRenderer.send("chat-page")
             } else {
@@ -52,6 +51,7 @@ export default function Login() {
             } else {
                 message.success(res.msg, 1);
                 setActiveKey('1');
+                setLoading(false);
             }
         });
     }, []);
