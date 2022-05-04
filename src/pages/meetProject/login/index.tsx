@@ -36,7 +36,7 @@ export default function Login() {
             if (res.code === 200) {
                 message.success(res.msg, 1);
                 loginTokenStorage.set(res.data.username);
-                history.push('/chatroom');
+                history.push('/meetProject/chatroom');
                 // ipcRenderer.send("chat-page")
             } else {
                 message.error(res.msg, 1);

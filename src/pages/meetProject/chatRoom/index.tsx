@@ -46,7 +46,7 @@ const ChatRoom = () => {
         userName.current = loginTokenStorage.get();
         console.log(userName.current);
         if (!userName.current) {
-            history.push('/login');
+            history.push('/meetProject/login');
         }
         // 监听数据
         socket.on(MSG, res => {
