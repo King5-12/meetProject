@@ -4,7 +4,7 @@ import { message } from 'antd';
 import { ERROR } from '@/constants';
 
 // 配置 socket.io 路径
-const url = 'http://localhost:8080';
+const url = 'http://121.89.204.99:8080';
 
 console.log('socket io use url: ', url);
 
