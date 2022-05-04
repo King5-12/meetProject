@@ -13,6 +13,6 @@ export default defineConfig({
         'border-radius-base': '4px',
     },
     fastRefresh: {},
-
+    publicPath: '/meetProject',
     ignoreMomentLocale: true,
 });
