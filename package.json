@@ -4,8 +4,8 @@
     "description": "用于面试",
     "private": true,
     "scripts": {
-        "start": "cross-env API_HOST=/api umi dev",
-        "dev": "cross-env API_HOST=http://172.20.90.123:10020 umi dev",
+        "start": "umi dev",
+        "dev": "umi dev",
         "build": "umi build",
         "postinstall": "umi generate tmp",
         "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
