@@ -32,6 +32,7 @@
         "moment": "^2.29.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "socket.io-client": "^4.5.0",
         "umi": "^3.4.6"
     },
     "devDependencies": {

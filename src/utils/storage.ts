@@ -28,11 +28,9 @@ const genStorage = (
     },
 });
 
-const genLocalStorage = (key: string) => genStorage(key, 'localStorage');
-// const genSessionStorage = (key: string) => genStorage(key, 'sessionStorage');
+// const genLocalStorage = (key: string) => genStorage(key, 'localStorage');
+const genSessionStorage = (key: string) => genStorage(key, 'sessionStorage');
 
-const KEY_TOKEN = 'meetProject_token';
-const KEY_EMPLOYEE_ID = 'mock_employee_id'; // 用户id的token，只用于dev和qa环境方便测试
+const LOGIN_TOKEN = 'login_token';
 
-export const tokenStorage = genLocalStorage(KEY_TOKEN);
-export const employeeIdStorage = genLocalStorage(KEY_EMPLOYEE_ID);
+export const loginTokenStorage = genSessionStorage(LOGIN_TOKEN);

@@ -1,17 +1,60 @@
-import React, { useState } from 'react';
-import { Button, Form, Input, Tabs } from 'antd';
-import { CommentOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useEffect, useState } from 'react';
+import { Button, Form, Input, message, Tabs } from 'antd';
+import { history } from 'umi';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+
+import socket from '@/utils/socket';
+import { loginTokenStorage } from '@/utils/storage';
+import { LOGIN, REGISTER } from '@/constants';
 
 import styles from './styles.less';
 
+interface FormValue {
+    username: string;
+    password: string;
+}
 export default function Login() {
     const [activeKey, setActiveKey] = useState('1');
     const [loading, setLoading] = useState(false);
     const [loginForm] = Form.useForm();
     const [registerForm] = Form.useForm();
 
-    const handleLogin = () => {};
-    const handleRegister = () => {};
+    const handleLogin = (value: FormValue) => {
+        setLoading(true);
+        const { username, password } = value;
+        socket.emit(LOGIN, { username, password });
+    };
+    const handleRegister = (value: FormValue) => {
+        setLoading(true);
+        const { username, password } = value;
+        socket.emit(REGISTER, { username, password });
+    };
+
+    useEffect(() => {
+        socket.on(LOGIN, res => {
+            // 如果登录成功
+            if (res.code === 200) {
+                message.success(res.msg, 1);
+                loginTokenStorage.set('true');
+                // 转换界面
+                history.push('/chatroom');
+                // ipcRenderer.send("chat-page")
+            } else {
+                message.error(res.msg, 1);
+                setLoading(false);
+            }
+        });
+
+        // 监听服务端处理注册的结果
+        socket.on(REGISTER, res => {
+            if (res.code === Error) {
+                message.error(res.msg, 1);
+            } else {
+                message.success(res.msg, 1);
+                setActiveKey('1');
+            }
+        });
+    }, []);
 
     return (
         <div className={styles['chat-room-login-container']}>
