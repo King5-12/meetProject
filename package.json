@@ -1,0 +1,56 @@
+{
+    "name": "meetProject",
+    "version": "1.0.0",
+    "description": "用于面试",
+    "private": true,
+    "scripts": {
+        "start": "cross-env API_HOST=/api umi dev",
+        "dev": "cross-env API_HOST=http://172.20.90.123:10020 umi dev",
+        "build": "umi build",
+        "postinstall": "umi generate tmp",
+        "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+        "test": "umi-test",
+        "test:coverage": "umi-test --coverage"
+    },
+    "gitHooks": {
+        "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.{js,jsx,less,md,json}": [
+            "prettier --write"
+        ],
+        "*.ts?(x)": [
+            "prettier --parser=typescript --write",
+            "eslint --fix"
+        ]
+    },
+    "dependencies": {
+        "@umijs/plugin-antd": "^0.8.0",
+        "antd": "^4.7.0",
+        "classnames": "^2.2.6",
+        "moment": "^2.29.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "umi": "^3.4.6"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0",
+        "@types/classnames": "^2.2.10",
+        "@typescript-eslint/eslint-plugin": "^2.34.0",
+        "@typescript-eslint/parser": "^2.34.0",
+        "babel-eslint": "^9.0.0",
+        "cross-env": "^7.0.0",
+        "eslint": "^5.16.0",
+        "eslint-plugin-flowtype": "^2.50.3",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^5.1.1",
+        "eslint-plugin-react": "^7.21.4",
+        "eslint-plugin-react-hooks": "^4.1.2",
+        "lint-staged": "^10.0.7",
+        "prettier": "^1.19.1",
+        "typescript": "^3.9.7",
+        "yorkie": "^2.0.0"
+    }
+}

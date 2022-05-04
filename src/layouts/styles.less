@@ -1,0 +1,24 @@
+.page-layout {
+  height: 100%;
+  min-width: 1280px;
+  display: flex;
+
+  
+
+  .page-layout-main {
+    overflow: auto;
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    
+    .page-layout-content {
+      padding: 20px;
+      flex-grow: 1;
+      overflow: auto;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
