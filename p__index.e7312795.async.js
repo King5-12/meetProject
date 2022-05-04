@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[4],{QeBL:function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),o=t.n(a),w=t("Ty5D");n["default"]=()=>o.a.createElement(w["a"],{to:"/login"})}}]);
