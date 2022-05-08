@@ -20,6 +20,7 @@ interface ChatItemValue {
     data: string;
     name: string;
 }
+
 const ChatItem = ({ value }: { value: ChatItemValue }) => {
     return (
         <div className={styles[`chat-room-message-item-${value.type}`]}>
